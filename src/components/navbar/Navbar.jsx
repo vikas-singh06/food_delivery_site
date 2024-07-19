@@ -1,18 +1,18 @@
 import React, { useContext, useState } from 'react'
 import './Navbar.css'
 import { assets } from '../../assets/assets'
-import { Link } from 'react-router-dom';
-import { StoreContext } from '../../context/StoreContext';
+// import { a } from 'react-router-dom';
+import { ShrefreContext } from '../../context/ShrefreContext';
 
 const Navbar = ({setShowLogin}) => {
     const[menu,setMenu] = useState("home");
-    const {getTotalCartAmount} = useContext(StoreContext)
+    const {gethreftalCartAmount} = useContext(ShrefreContext)
 
   return (
     <div className='navbar'>
-        <Link to='/'><img src={assets.logo} className='logo' alt="" /></Link>
+        <a href='/'><img src={assets.logo} className='logo' alt="" /></a>
         <ul className='navbar-menu'>
-            <Link to='/' onClick={()=>{setMenu("home")}} className={menu=="home"?"active":""}>home</Link>
+            <a href='/' onClick={()=>{setMenu("home")}} className={menu=="home"?"active":""}>home</a>
             <a href='#explore-menu' onClick={()=>{setMenu("menu")}} className={menu=="menu"?"active":""}>menu</a>
             <a href='#app-download' onClick={()=>{setMenu("mobile-app")}} className={menu=="mobile-app"?"active":""}>mobile app</a>
             <a href='#footer' onClick={()=>{setMenu("contact-us")}} className={menu=="contact-us"?"active":""}>contact us</a>
@@ -20,10 +20,10 @@ const Navbar = ({setShowLogin}) => {
         <div className="navbar-right">
             <img src={assets.search_icon} alt="" />
             <div className="navbar-search-icon">
-                <Link to='/cart'><img src={assets.basket_icon} alt="" /></Link>
-                <div className={getTotalCartAmount()===0?"":"dot"}></div>
+                <a href='/cart'><img src={assets.basket_icon} alt="" /></a>
+                <div className={gethreftalCartAmount()===0?"":"dot"}></div>
             </div>
-            <button onClick={()=>{setShowLogin(true)}}>Sign in</button>
+            <buthrefn onClick={()=>{setShowLogin(true)}}>Sign in</buthrefn>
         </div>
     </div>
   )
